@@ -1,0 +1,329 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Assignment;
+
+
+import java.text.DecimalFormat;
+import java.util.*;
+
+/**
+ *
+ * Name : Muhamad Nazim Fu bin Asmadi
+ * ID Number : 52051120049
+ * Program : Pre - Korea
+ * Class : L02
+ * 
+ */
+public class Assignment {
+
+    /**
+     * @param args the command line arguments
+     */
+    
+    public static void main(String args[]) {
+        // TODO code application logic here
+        
+        DecimalFormat df = new DecimalFormat("#.##"); 
+
+        Scanner sc = new Scanner(System.in);
+
+        //declare variables to use
+        String name, prog, grade = "", status = "" ,id;
+        int  sem, num, crhr, cWork;
+        double pt = 0.00;
+        
+        
+        
+        //Prompt and get for student name
+        System.out.print("Name\t\t\t:  ");
+        name = sc.nextLine();
+
+        //Prompt and get for student ID
+        System.out.print("ID\t\t\t:  ");
+        id = sc.nextLine();
+
+        //Prompt for get programme
+        System.out.print("Program\t\t\t:  ");
+        prog = sc.next();
+
+        //Prompt and get semester
+        System.out.print("Semester\t\t:  ");
+        sem = sc.nextInt();
+
+        //Initialize course name and IDs
+        String  Course1 = "Pc Hardware", Course1ID = "IDP01103",
+                Course2 = "Programming", Course2ID = "IDP01203",
+                Course3 = "Calculus 1", Course3ID = "IDP07104",
+                Course4 = "Korean Language", Course4ID = "IDP06904",
+                Course5 = "Korean Communication", Course5ID = "IDP07004",
+                Course6 = "Introduction to Intercultural Communication", Course6ID = "IDP07202";
+
+        String  grade1 = "", status1 = "",
+                grade2 = "", status2 = "",
+                grade3 = "", status3 = "",
+                grade4 = "", status4 = "",
+                grade5 = "", status5 = "",
+                grade6 = "", status6 = "";
+
+        //Initialize coursework mark, final exam mark, total mark
+        int     Coursework1Mark = 0, FinalExam1Mark = 0, TotalMark1 = 0, CreditHour1 = 0,
+                Coursework2Mark = 0, FinalExam2Mark = 0, TotalMark2 = 0, CreditHour2 = 0,
+                Coursework3Mark = 0, FinalExam3Mark = 0, TotalMark3 = 0, CreditHour3 = 0,
+                Coursework4Mark = 0, FinalExam4Mark = 0, TotalMark4 = 0, CreditHour4 = 0,
+                Coursework5Mark = 0, FinalExam5Mark = 0, TotalMark5 = 0, CreditHour5 = 0,
+                Coursework6Mark = 0, FinalExam6Mark = 0, TotalMark6 = 0, CreditHour6 = 0,
+                CourseworkMark  = 0, FinalExamMark  = 0, TotalMark  = 0, CreditHour  = 0;
+
+        //Initialize GPA,CGPA,Total credit hour, cw,
+        double GPA, CGPA, pt1 = 0.00, pt2 = 0.00, pt3 = 0.00, pt4 = 0.00, pt5 = 0.00, pt6 = 0.00,Totalpt = 0.00,
+               TotalPoint1 = 0.00, TotalPoint2 = 0.00, TotalPoint3 = 0.00,TotalPoint4 = 0.00, TotalPoint5 = 0.00, TotalPoint6 = 0.00;
+
+        int TotalCreditHour;
+        String course = null, ID = null;
+
+        //declare credit hour
+        int CourseCredits1 = 3;
+        int CourseCredits2 = 3;
+        int CourseCredits3 = 4;
+        int CourseCredits4 = 4;
+        int CourseCredits5 = 4;
+        int CourseCredits6 = 2;
+
+        int TotalCreditHours;
+
+        //Calculate Total Credit Hours;
+        TotalCreditHours = CourseCredits1 + CourseCredits2 + CourseCredits3 + CourseCredits4 + CourseCredits5 + CourseCredits6;
+
+
+        
+for (int i = 1; i <= 6; i++) {
+       
+
+            switch (i) {
+                case 1:
+                    course = Course1;
+                    ID = Course1ID;
+                    break;
+                    
+                case 2:
+                    course = Course2;
+                    ID = Course2ID;
+                    break;
+                    
+                case 3:
+                    course = Course3;
+                    ID = Course3ID;
+                    break;
+                    
+                case 4:
+                    course = Course4;
+                    ID = Course4ID;
+                    break;
+                    
+                case 5:
+                    course = Course5;
+                    ID = Course5ID;
+                    break;
+                    
+                case 6:
+                    course = Course6;
+                    ID = Course6ID;
+                    break;
+            
+                   
+               }      
+                    //display the course name and ID 
+                    System.out.print(ID+" "+course);
+                    ID = sc.nextLine();
+                    course = sc.nextLine();
+                   
+
+                    
+                    //Prompt and get for coursework mark 
+                    System.out.println("Coursework mark: ");
+                    CourseworkMark = sc.nextInt();
+
+                    //Prompt and get final exam mark
+                    System.out.println("Final exam mark: ");
+                    FinalExamMark = sc.nextInt();
+
+                    
+            //Calculate for half Coursework mark
+            CourseworkMark = CourseworkMark / 2;
+
+            //Calculate for half final exam mark
+            FinalExamMark = FinalExamMark / 2;
+
+            //Calculate Total Mark
+            TotalMark = CourseworkMark + FinalExamMark;
+
+            //Determine status
+            if (TotalMark < 40) {
+                status = "FAIL";
+            } else {
+                status = "PASS";
+            }
+
+            //Determine Grade
+            if (TotalMark >= 80) {
+                grade = "A";
+                pt = 4.00;
+            } else if (TotalMark >= 75) {
+                grade = "A-";
+                pt = 3.67;
+            } else if (TotalMark >= 70) {
+                grade = "B+";
+                pt = 3.33;
+            } else if (TotalMark >= 65) {
+                grade = "B";
+                pt = 3.00;
+            } else if (TotalMark >= 60) {
+                grade = "B-";
+                pt = 2.67;
+            } else if (TotalMark >= 55) {
+                grade = "C+";
+                pt = 2.33;
+            } else if (TotalMark >= 50) {
+                grade = "C";
+                pt = 2.00;
+            } else if (TotalMark >= 45) {
+                grade = "C-";
+                pt = 1.67;
+            } else if (TotalMark >= 40) {
+                grade = "D";
+                pt = 1.00;
+            } else {
+                grade = "F";
+                pt = 0.00;
+            }
+
+            //assign the result
+            switch (i) {
+                case 1:
+                    TotalMark1 = TotalMark;
+                    grade1 = grade;
+                    pt1 = pt;
+                    status1 = status;
+                    Coursework1Mark = CourseworkMark;
+                    FinalExam1Mark = FinalExamMark;
+                    //CourseCredits1 = CreditHour;
+                    break;
+                case 2:
+                    TotalMark2 = TotalMark;
+                    grade2 = grade;
+                    pt2 = pt;
+                    status2 = status;
+                    Coursework2Mark = CourseworkMark;
+                    FinalExam2Mark = FinalExamMark;
+                    //CourseCredits2 = CreditHour;
+                    break;
+                case 3:
+                    TotalMark3 = TotalMark;
+                    grade3 = grade;
+                    pt3 = pt;
+                    status3 = status;
+                    Coursework3Mark = CourseworkMark;
+                    FinalExam3Mark = FinalExamMark;
+                    //CourseCredits3 = CreditHour;
+                    break;
+                case 4:
+                    TotalMark4 = TotalMark;
+                    grade4 = grade;
+                    pt4 = pt;
+                    status4 = status;
+                    Coursework4Mark = CourseworkMark;
+                    FinalExam4Mark = FinalExamMark;
+                    //CourseCredits4 = CreditHour;
+                    break;
+                case 5:
+                    TotalMark5 = TotalMark;
+                    grade5 = grade;
+                    pt5 = pt;
+                    status5 = status;
+                    Coursework5Mark = CourseworkMark;
+                    FinalExam5Mark = FinalExamMark;
+                    //CourseCredits5 = CreditHour;
+                    break; 
+          
+                case 6:
+                    TotalMark6 = TotalMark;
+                    grade6 = grade;
+                    pt6 = pt;
+                    status6 = status;
+                    Coursework6Mark = CourseworkMark;
+                    FinalExam6Mark = FinalExamMark;
+                    //CourseCredits6 = CreditHour;
+                    break;
+            }
+
+}
+        
+
+            //calculate Grade point
+            TotalPoint1 = CourseCredits1 * pt1;
+            TotalPoint2 = CourseCredits2 * pt2;
+            TotalPoint3 = CourseCredits3 * pt3;
+            TotalPoint4 = CourseCredits4 * pt4;
+            TotalPoint5 = CourseCredits5 * pt5;
+            TotalPoint6 = CourseCredits6 * pt6;
+
+            //Calculate GPA
+            
+        
+            String t = df.format(0.00);
+
+
+            TotalCreditHour = (CourseCredits1 + CourseCredits2 + CourseCredits3 + CourseCredits4 + CourseCredits5 + CourseCredits6);
+            GPA = ((TotalPoint1 + TotalPoint2 + TotalPoint3 + TotalPoint4 + TotalPoint5 + TotalPoint6) / TotalCreditHour);
+            
+            //Calculate CGPA
+            CGPA =((TotalPoint1 + TotalPoint2 + TotalPoint3 + TotalPoint4 + TotalPoint5 + TotalPoint6) / TotalCreditHour);
+            
+            Totalpt = TotalPoint1 + TotalPoint2 + TotalPoint3 + TotalPoint4 + TotalPoint5 + TotalPoint6;
+            
+            
+            //Display result slip
+            System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t  -UNIVERSITI KUALA LUMPUR-");
+            System.out.println("\n\t\t\t\t\t\t\t\t\t\t\t\tResult Slip Semester July 2020");
+
+            System.out.println("\n____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________");
+
+            //Display ask for name
+            System.out.println("\nName\t\t\t:  "+name);
+  
+
+            //Display ask for id
+            System.out.println("ID\t\t\t:  "+id);
+        
+
+            //Display Ask for programme
+            System.out.println("Program\t\t\t:  "+prog);
+       
+
+            //Display ask for sem
+            System.out.println("Semester\t\t:  "+sem);
+        
+        
+            System.out.println("\n____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________");
+
+            //Display for title Credit Hour, Grade, Coursework mark,Final Exam Mark, Total Mark, Pointer , Status of mark, Total point
+            System.out.println("\n\t\t\t\t\t\t\t        Crhr\t\tGrade\t\tPt.\t\tCwork\t\tFinal\t\tTotal\t\tStatus\t\tTotalpt");
+            
+            System.out.println("1.  " + Course1ID+ "\t " + Course1 + "\t\t\t\t\t " + CourseCredits1+ "\t\t " + grade1 + "\t\t" + pt1 + "\t\t" + Coursework1Mark + "\t\t" + FinalExam1Mark + "\t\t" + TotalMark1 + "\t\t"+ status1+"\t\t"+TotalPoint1);  
+            System.out.println("2.  " + Course2ID+ "\t " + Course2 + "\t\t\t\t\t " + CourseCredits2+"\t\t " + grade2 + "\t\t" + pt2 + "\t\t" + Coursework2Mark + "\t\t" + FinalExam2Mark + "\t\t" + TotalMark2 + "\t\t" + status2+"\t\t"+TotalPoint2);
+            System.out.println("3.  " + Course3ID+ "\t " + Course3 + "\t\t\t\t\t " + CourseCredits3+"\t\t " + grade3 + "\t\t" + pt3 + "\t\t" + Coursework3Mark + "\t\t" + FinalExam3Mark + "\t\t" + TotalMark3 + "\t\t" + status3+"\t\t"+TotalPoint3);
+            System.out.println("4.  " + Course4ID+ "\t " + Course4 + "\t\t\t\t " + CourseCredits4+"\t\t " + grade4 + "\t\t" + pt4 + "\t\t" + Coursework4Mark + "\t\t" + FinalExam4Mark + "\t\t" + TotalMark4 + "\t\t" + status4+"\t\t"+TotalPoint4);
+            System.out.println("5.  " + Course5ID+ "\t " + Course5 + "\t\t\t\t " + CourseCredits5+"\t\t " + grade5 + "\t\t" + pt5 + "\t\t" + Coursework5Mark + "\t\t" + FinalExam5Mark + "\t\t" + TotalMark5 + "\t\t" + status5+"\t\t"+TotalPoint5);
+            System.out.println("6.  " + Course6ID+ "\t " + Course6 + "\t " + CourseCredits6+ "\t\t "+ grade6 + "\t\t" + pt6 + "\t\t" + Coursework6Mark + "\t\t" + FinalExam6Mark + "\t\t" + TotalMark6 + "\t\t" + status6+"\t\t"+TotalPoint6);
+            System.out.println("\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ ");
+
+            
+            System.out.println("\n\n\n\t\t\t\t\t\t\t\tTotal Credit Hour: "+TotalCreditHour+"\t\t\t\t\t\t\t\t\t\t\t\tTotal point: : "+Totalpt);
+            System.out.println("\n\n\n\t\t\t\t\t\t\t\tGPA: "+GPA+"\t\t\t\t\tCGPA: "+CGPA);
+        }
+    }
+
+
