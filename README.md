@@ -1,1 +1,1 @@
-# Fu
+# CGPA System
